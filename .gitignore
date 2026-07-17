@@ -1,0 +1,23 @@
+.venv/
+
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Pytest cache
+.pytest_cache/
+
+# Playwright results
+test-results/
+playwright-report/
+
+# IDE settings
+.vscode/
+.idea/
+
+# smoke_test
+tests/test_smoke.py
+
+save_auth_state.py
