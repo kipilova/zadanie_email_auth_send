@@ -31,7 +31,7 @@ class LoginPage:
 
         self.page.wait_for_url("**/mail/**", timeout=30_000)
 
-
+    # zrusi okno s povolenim automatickeho prihlasenia
     def _decline_stay_signed_in(self) -> None:
         stay_signed_in_box = self.page.get_by_text("Skip having to sign in every time.")
 
@@ -45,13 +45,15 @@ class LoginPage:
 
         except PlaywrightTimeoutError:
             pass
-        
+
+    # check nacitanie emailovej schranky
     def expect_inbox_to_be_visible(self) -> None:
         inbox = self.page.get_by_text("Inbox", exact=True).first
 
         expect(inbox).to_be_visible(timeout=30_000)
         ##self.page.pause()
-        
+
+    # odhlasenie
     def logout(self, account_button_name: str) -> None:
         account_manager = self.page.get_by_role("button", name=account_button_name, exact=True)
 
@@ -65,6 +67,7 @@ class LoginPage:
         sign_out.click()
         ##self.page.pause()
 
+    # check presmerovanie po odhlaseni
     def expect_user_to_be_logged_out(self) -> None:
         self.page.wait_for_url("**msn**", timeout=30_000)
 
