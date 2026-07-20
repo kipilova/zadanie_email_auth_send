@@ -40,6 +40,9 @@ Block level 1:
 
 Create and activate a virtual environment:
 
-```powershell
 py -m venv .venv
 .\.venv\Scripts\Activate.ps1
+
+## Example
+Screen record from testing: https://drive.google.com/file/d/1yZqB3pmEOP-QH2LhuAxwEYh0H2YMPwzE/view?usp=sharing
+<img width="1452" height="275" alt="image" src="https://github.com/user-attachments/assets/2c1acf9d-ab24-49bb-8899-3803d1e4a188" />
