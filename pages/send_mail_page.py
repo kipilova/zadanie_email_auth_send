@@ -8,6 +8,7 @@ class SendMailPage:
     def __init__(self, page: Page):
         self.page = page
 
+    # zostavi email
     def compose_email(self, contact_name: str, contact_email: str, subject: str, body: str) -> None:
         new_email_button = self.page.get_by_role("button", name="New email")
 
@@ -38,7 +39,7 @@ class SendMailPage:
         message_body.fill(body)
 
         
-
+    # pripojenie prilohy
     def attach_file(self, file_path: Path) -> None:
         attach_button = self.page.get_by_role("button", name="Attach file")
 
@@ -59,7 +60,7 @@ class SendMailPage:
 
         expect(attachment_name).to_be_visible(timeout=30_000)
 
-
+    # poslanie
     def send_email(self) -> None:
         send_button = self.page.get_by_role(
             "button",
@@ -69,6 +70,7 @@ class SendMailPage:
         expect(send_button).to_be_enabled(timeout=10_000)
         send_button.click()
 
+    # check v odoslanej poste
     def expect_email_in_sent_items(self, subject: str) -> None:
         sent_items = self.page.get_by_role(
             "treeitem",
